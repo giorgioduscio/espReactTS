@@ -1,25 +1,31 @@
-import { createContext, useState } from "react";
-import ContextB from "./ContextB";
+import { peopleContext } from "../datas/UsersContext";
 import Navbar from "./Navbar";
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const HHH =createContext({})
+import { useState } from "react";
+import ContextB from "./ContextB";
+
 
 export default function ContextA() {
   document.title="Context"
-  const [user, setUser] =useState("Vuoto")
+  const [users, setUsers] =useState([
+    {id:1, name:"Aldo"},
+    {id:2, name:"Beatrice"},
+    {id:3, name:"Carlo"},
+  ])
   
-  function change(e:Event) {
-    e.target.value==''? setUser( "Vuoto" ) :setUser( e.target.value )
-  }
-  
-  return (<HHH.Provider value={user}>
+  return (
+  <peopleContext.Provider value={users}>
     <Navbar/>
-    <div className="Context">
-      <h1>ContextA</h1>
-      <input type="text" onChange={change}/>
-      <p>{user}</p>
+    <div className="flexbox" style={{display:"flex"}}>
+      <div style={{border:"1px solid"}}>
+        <h1>ContextA</h1>
+        {users.map(user=>{
+          return <p key={user.id}>{user.name}</p>
+        })}
+      </div>
+
       <ContextB/>
     </div>
-  </HHH.Provider>)
+  </peopleContext.Provider>
+  )
 }

@@ -1,17 +1,15 @@
 import { useContext } from "react";
-import { HHH } from "./ContextA";
+import { peopleContext } from "../datas/UsersContext";
 
 export default function ContextC() {
-  const user =useContext(HHH)
-  // console.log('contextB', animals);
+  const users =useContext(peopleContext)
 
   return (
-    <div>
-      <h3>ContextC</h3>
-      <p>{user}</p>
-      {/* {animals.map(animal=>{ 
-        return <div key={animal}>{animal}; </div> 
-      })} */}
-    </div>
+  <div style={{border:"1px solid"}}>
+    <h3>ContextC</h3>
+    {users.map(user=>{
+      return <p key={user.id}>{user.name}</p>
+    })}
+  </div>
   )
 }
