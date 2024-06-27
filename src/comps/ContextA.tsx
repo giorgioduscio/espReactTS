@@ -16,8 +16,8 @@ export default function ContextA() {
   return (
   <peopleContext.Provider value={users}>
     <Navbar/>
-    <div className="flexbox" style={{display:"flex"}}>
-      <div style={{border:"1px solid"}}>
+    <div>
+      <div style={{boxShadow:"0 0 20px 0 black"}}>
         <h1>ContextA</h1>
         {users.map(user=>{
           return <p key={user.id}>{user.name}</p>
