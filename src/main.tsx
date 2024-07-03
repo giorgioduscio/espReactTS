@@ -7,15 +7,15 @@ import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import ContextA from './comps/ContextA'
 import ReducerComp from './comps/ReducerComp'
 import Error from './comps/Error'
-import Effect from './comps/Effect'
-import Rchildren from './comps/Rchildren'
+import EffectContext from './comps/EffectContext'
+import EffectContextCard from './comps/EffectContextCard'
 
 export const router =createBrowserRouter([
   { path:"",  element: <Navigate to={"/context"}/>},
   { path:"context", element: <ContextA/> },
   { path:"reducer", element: <ReducerComp/> },
-  { path:"effect", element: <Effect/>, children:[
-    { path:":urlid", element: <Rchildren/> }
+  { path:"effect", element: <EffectContext/>, children:[
+    { path:":urlid", element: <EffectContextCard/> },
   ] },
   
   { path:"error", element: <Error/> },
