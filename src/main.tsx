@@ -11,13 +11,15 @@ import EffectContext from './comps/EffectContext'
 import EffectContextCard from './comps/EffectContextCard'
 
 export const router =createBrowserRouter([
+  // NESSUN PERCORSO
   { path:"",  element: <Navigate to={"/context"}/>},
   { path:"context", element: <ContextA/> },
+  
   { path:"reducer", element: <ReducerComp/> },
   { path:"effect", element: <EffectContext/>, children:[
     { path:":urlid", element: <EffectContextCard/> },
   ] },
-  
+  // PAGINA NON TROVATA
   { path:"error", element: <Error/> },
   { path:"*", element: <Navigate to={"/error"}/> },
 ])
