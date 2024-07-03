@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { peopleContext } from "../datas/UsersContext";
+import { animalsContext } from "../datas/Animals";
 
 export default function ContextC() {
-  const users =useContext(peopleContext)
+  const users =useContext(animalsContext)
 
   return (
   <div style={{boxShadow:"0 0 20px 0 black"}}>

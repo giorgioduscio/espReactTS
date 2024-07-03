@@ -1,4 +1,4 @@
-import { peopleContext } from "../datas/UsersContext";
+import { animalsContext } from "../datas/Animals";
 import Navbar from "./Navbar";
 
 import { useState } from "react";
@@ -14,7 +14,7 @@ export default function ContextA() {
   ])
   
   return (
-  <peopleContext.Provider value={users}>
+  <animalsContext.Provider value={users}>
     <Navbar/>
     <div>
       <div style={{boxShadow:"0 0 20px 0 black"}}>
@@ -26,6 +26,6 @@ export default function ContextA() {
 
       <ContextB/>
     </div>
-  </peopleContext.Provider>
+  </animalsContext.Provider>
   )
 }
