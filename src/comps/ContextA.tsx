@@ -4,7 +4,6 @@ import Navbar from "./Navbar";
 import { useState } from "react";
 import ContextB from "./ContextB";
 
-
 export default function ContextA() {
   document.title="Context"
   const [users, setUsers] =useState([
@@ -19,7 +18,7 @@ export default function ContextA() {
     <div>
       <div style={{boxShadow:"0 0 20px 0 black"}}>
         <h1>ContextA</h1>
-        {users.map(user=>{
+        {users.map((user, index, arrayReference)=>{
           return <p key={user.id}>{user.name}</p>
         })}
       </div>

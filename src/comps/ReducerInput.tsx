@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function ReducerInput({formState, formKeys, dispatchState}) {
   //optimize ECCEZIONI
   function fieldType(fieldName:string){ 
