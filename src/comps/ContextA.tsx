@@ -1,30 +1,36 @@
-import { animalsContext } from "../datas/Animals";
+import { todosContext } from "../datas/Todos";
 import Navbar from "./Navbar";
 
-import { useState } from "react";
 import ContextB from "./ContextB";
+import Todos from "../datas/Todos";
 
 export default function ContextA() {
   document.title="Context"
-  const [users, setUsers] =useState([
-    {id:1, name:"Aldo"},
-    {id:2, name:"Beatrice"},
-    {id:3, name:"Carlo"},
-  ])
+  const {todos, setTodos} =Todos()
+  // console.log('todos', todos);
+
+  function add() {
+    setTodos([...todos, {
+      completed: false,
+      id: todos.length+1,
+      title: "Nuovo",
+      userId: 1,
+    }])
+  }
   
   return (
-  <animalsContext.Provider value={users}>
+  <todosContext.Provider value={todos}>
     <Navbar/>
-    <div>
+    <div className="ContextA" style={{display:"flex"}}>
       <div style={{boxShadow:"0 0 20px 0 black"}}>
-        <h1>ContextA</h1>
-        {users.map((user, index, arrayReference)=>{
-          return <p key={user.id}>{user.name}</p>
-        })}
+        <h1 onClick={add}>ContextA</h1>
+        {todos.map((todo, index, arrayReference)=>
+          <p key={todo.id}>{todo.id}: {todo.title}</p>
+        )}
       </div>
 
       <ContextB/>
     </div>
-  </animalsContext.Provider>
+  </todosContext.Provider>
   )
 }

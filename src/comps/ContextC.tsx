@@ -1,14 +1,14 @@
 import { useContext } from "react";
-import { animalsContext } from "../datas/Animals";
+import { todosContext } from "../datas/Todos";
 
 export default function ContextC() {
-  const users =useContext(animalsContext)
+  const todos =useContext(todosContext)
 
   return (
   <div style={{boxShadow:"0 0 20px 0 black"}}>
     <h3>ContextC</h3>
-    {users.map(user=>{
-      return <p key={user.id}>{user.name}</p>
+    {todos.map(todo=>{
+      return <p key={todo.id}>{todo.title}</p>
     })}
   </div>
   )
