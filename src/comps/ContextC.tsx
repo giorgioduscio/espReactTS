@@ -15,11 +15,11 @@ export default function ContextC() {
 
   return (
   <div style={{boxShadow:"0 0 20px 0 black"}}>
-    <h3>ContextC</h3>
+    <h1>ContextC</h1>
     <button onClick={add}>Aggiungi</button>
-    {todos.map((todo:object)=>{
-      return <p key={todo.id}>{todo.id}: {todo.title}</p>
-    })}
+    <div className="todos">{todos.map((todo:object)=>
+      <p key={todo.id}>{todo.id}: {todo.title}</p>
+    )}</div>
   </div>
   )
 }

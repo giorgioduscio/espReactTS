@@ -1,3 +1,4 @@
+import "./Reducer.css"
 import { useReducer } from "react";
 import Navbar from "./Navbar"
 import { reducer } from "./reducer";
@@ -13,18 +14,20 @@ export default function ReducerComp() {
   
   return (<>
   <Navbar/>
-  <div>
+  <div className="ReducerComp">
     <h1>ReducerComp</h1>
-    <ReducerInput 
-      formState={formState} 
-      formKeys={formKeys} 
-      dispatchState={dispatchState}
-    />    
+    <div className="flexbox">
+      <ReducerInput 
+        formState={formState} 
+        formKeys={formKeys} 
+        dispatchState={dispatchState}
+      />    
 
-    <ReducerOutput 
-      formState={formState} 
-      formKeys={formKeys} 
-    />
+      <ReducerOutput 
+        formState={formState} 
+        formKeys={formKeys} 
+      />
+    </div>
 
     {/* <input type="range" value="3" />
     <meter value="5" min="0" max="10">2 out of 10</meter>

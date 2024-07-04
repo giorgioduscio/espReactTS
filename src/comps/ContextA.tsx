@@ -1,5 +1,6 @@
 import { todosContext } from "../datas/Todos";
 import Navbar from "./Navbar";
+import "./Context.css"
 
 import ContextB from "./ContextB";
 import Todos from "../datas/Todos";
@@ -13,12 +14,12 @@ export default function ContextA() {
   return (
   <todosContext.Provider value={{ todos, setTodos }}>
     <Navbar/>
-    <div className="ContextA" style={{display:"flex"}}>
+    <div className="ContextA">
       <div style={{boxShadow:"0 0 20px 0 black"}}>
         <h1>ContextA</h1>
-        {todos.map((todo, index, arrayReference)=>
+        <div className="todos">{todos.map((todo, index, arrayReference)=>
           <p key={todo.id}>{todo.id}: {todo.title}</p>
-        )}
+        )}</div>
       </div>
 
       <ContextB/>

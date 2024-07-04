@@ -1,0 +1,13 @@
+.ContextA{
+    display: flex;
+    flex-wrap: wrap;
+}
+    .ContextA>div{
+        width: 300px;
+        max-height: 100vh;
+        overflow-y: scroll;
+    }
+        .ContextA .todos{
+            display: flex;
+            flex-direction: column-reverse;
+        }

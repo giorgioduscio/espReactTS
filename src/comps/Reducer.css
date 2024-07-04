@@ -1,0 +1,8 @@
+.ReducerComp .flexbox{
+    display: flex;
+    flex-wrap: wrap;
+}
+    .ReducerComp .flexbox>*{
+        width: 300px;
+    }
+    
