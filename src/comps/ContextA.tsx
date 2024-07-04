@@ -9,21 +9,13 @@ export default function ContextA() {
   const {todos, setTodos} =Todos()
   // console.log('todos', todos);
 
-  function add() {
-    setTodos([...todos, {
-      completed: false,
-      id: todos.length+1,
-      title: "Nuovo",
-      userId: 1,
-    }])
-  }
-  
+ 
   return (
-  <todosContext.Provider value={todos}>
+  <todosContext.Provider value={{ todos, setTodos }}>
     <Navbar/>
     <div className="ContextA" style={{display:"flex"}}>
       <div style={{boxShadow:"0 0 20px 0 black"}}>
-        <h1 onClick={add}>ContextA</h1>
+        <h1>ContextA</h1>
         {todos.map((todo, index, arrayReference)=>
           <p key={todo.id}>{todo.id}: {todo.title}</p>
         )}
