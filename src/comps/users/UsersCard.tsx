@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import { UsersContext } from "../datas/Users";
+import { UsersContext } from "../../datas/UsersDatas";
 
-export default function EffectContextCard() {
+export default function UsersCard() {
   const 
     urlid :number =Number(useParams().urlid),
     {users, setUsers} =useContext(UsersContext),
@@ -18,12 +18,12 @@ export default function EffectContextCard() {
   }, [urlid, users])
 
 
-  function changeField(e:Event) {
-    const {value, name} =e.target
+  function changeField(event:Event) {
+    const {value, name} =(event.target as HTMLInputElement)
     setFormState({...formState, [name]:value})
   }
-  function submit(e:Event) {
-    e.preventDefault()
+  function submit(event:Event) {
+    event.preventDefault()
     // const result :object[] =[]
     // for (let user of users) {
     //   if(user.id==formState.id) user =formState

@@ -13,4 +13,6 @@ html, body {
   background: var(--c1);
 }
 
-
+article{
+  padding-top: 50px;
+}

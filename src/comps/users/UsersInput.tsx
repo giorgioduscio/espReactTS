@@ -1,4 +1,4 @@
-export default function EffectContextInput() {
+export default function UsersInput() {
 
     function submit(e:Event) {
         e.preventDefault()
@@ -14,7 +14,7 @@ export default function EffectContextInput() {
     }
 
   return (<>
-    <h1>EffectContextInput</h1>
+    <h1>UsersInput</h1>
     <form onSubmit={submit}>
         <button type="submit">Add</button>
     </form>

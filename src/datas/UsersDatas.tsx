@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react"
 
 export const UsersContext =createContext({})
 
-export default function Users() {
+export default function UsersDatas() {
     const [users, setUsers] =useState([])
     useEffect(()=>{
       fetch("https://jsonplaceholder.typicode.com/users")

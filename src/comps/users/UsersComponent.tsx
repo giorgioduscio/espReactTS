@@ -1,12 +1,12 @@
-import "./EffectContext.css"
-import Navbar from "./Navbar"
+import "./UsersComponent.css"
+import Navbar from "../navbar/Navbar"
 import { Link, Outlet } from "react-router-dom"
-import Users, { UsersContext } from "../datas/Users"
+import UsersDatas, { UsersContext } from "../../datas/UsersDatas"
 
 
-export default function EffectContext() { 
-  document.title="EffectContext"
-  const {users, setUsers} =Users()
+export default function UsersComponent() { 
+  document.title="UsersComponent"
+  const {users, setUsers} =UsersDatas()
 
   function deleteUser(id:number) {
     const result :object[] =[]
@@ -20,12 +20,12 @@ export default function EffectContext() {
   return (<UsersContext.Provider value={{users, setUsers}}>
     <Navbar/>
 
-    <div className="EffectContext">
+    <article className="UsersComponent">
       <details open className="usersMenu">
         <summary>Utenti</summary>
         <ol>
           <Link to={'/effect/input'}>Aggiungi</Link>
-        {users.map((user:object)=>
+        {users.map((user:any)=>
           <li key={user.id}>
             <button onClick={()=> deleteUser(user.id)}>❌</button>
             <Link to={`/effect/${user.id}`}>{user.name}</Link>
@@ -34,6 +34,6 @@ export default function EffectContext() {
       </details>
 
       <Outlet />
-    </div>
+    </article>
   </UsersContext.Provider>)
 }

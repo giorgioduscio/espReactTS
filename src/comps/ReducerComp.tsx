@@ -1,6 +1,6 @@
 import "./Reducer.css"
 import { useReducer } from "react";
-import Navbar from "./Navbar"
+import Navbar from "./navbar/Navbar"
 import { reducer } from "./reducer";
 import ReducerInput from "./ReducerInput";
 import ReducerOutput from "./ReducerOutput";

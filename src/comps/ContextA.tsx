@@ -1,5 +1,5 @@
 import { todosContext } from "../datas/Todos";
-import Navbar from "./Navbar";
+import Navbar from "./navbar/Navbar";
 import "./Context.css"
 
 import ContextB from "./ContextB";

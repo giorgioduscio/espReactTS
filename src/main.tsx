@@ -7,10 +7,10 @@ import { Navigate, RouteObject, RouterProvider, createBrowserRouter } from 'reac
 import ContextA from './comps/ContextA'
 import ReducerComp from './comps/ReducerComp'
 import Error from './comps/Error'
-import EffectContext from './comps/EffectContext'
-import EffectContextCard from './comps/EffectContextCard'
+import UsersComponent from './comps/users/UsersComponent'
+import UsersCard from './comps/users/UsersCard'
+import UsersInput from './comps/users/UsersInput'
 import Firebase from './comps/Firebase'
-import EffectContextInput from './comps/EffectContextInput'
 
 export const router :RouteObject |any[] =createBrowserRouter([
   // NESSUN PERCORSO
@@ -19,9 +19,9 @@ export const router :RouteObject |any[] =createBrowserRouter([
   
   { show: false, path:"firebase", element: <Firebase/> },
   { show: true, path:"reducer", element: <ReducerComp/> },
-  { show: true, path:"effect", element: <EffectContext/>, children:[
-    { path:"input", element: <EffectContextInput/> },
-    { path:":urlid", element: <EffectContextCard/> },
+  { show: true, path:"users", element: <UsersComponent/>, children:[
+    { path:"input", element: <UsersInput/> },
+    { path:":urlid", element: <UsersCard/> },
   ] },
   // PAGINA NON TROVATA
   { show: false, path:"error", element: <Error/> },
