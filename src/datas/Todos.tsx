@@ -9,7 +9,7 @@ export default function Todos() {
       .then(response => response.json())
       .then(json => setTodos(json))
   }, [])
-  console.log("json", todos);
+  // console.log("json", todos);
 
   return {todos, setTodos}
 }
