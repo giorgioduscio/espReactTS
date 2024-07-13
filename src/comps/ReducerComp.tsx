@@ -14,7 +14,8 @@ export default function ReducerComp() {
   
   return (<>
   <Navbar/>
-  <div className="ReducerComp">
+
+  <article className="ReducerComp">
     <h1>ReducerComp</h1>
     <div className="flexbox">
       <ReducerInput 
@@ -41,6 +42,6 @@ export default function ReducerComp() {
         <option value="audi">Audi</option>
       </optgroup>
     </select> */}
-  </div>
+  </article>
   </>)
 }
