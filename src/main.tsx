@@ -2,7 +2,7 @@ import './macro.css'
 import './micro.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Navigate, RouteObject, RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import ContextA from './comps/ContextA'
 import ReducerComp from './comps/ReducerComp'
@@ -10,20 +10,22 @@ import Error from './comps/Error'
 import EffectContext from './comps/EffectContext'
 import EffectContextCard from './comps/EffectContextCard'
 import Firebase from './comps/Firebase'
+import EffectContextInput from './comps/EffectContextInput'
 
-export const router =createBrowserRouter([
+export const router :RouteObject |any[] =createBrowserRouter([
   // NESSUN PERCORSO
-  { path:"",  element: <Navigate to={"/context"}/>},
-  { path:"context", element: <ContextA/> },
+  { show: false, path:"",  element: <Navigate to={"/context"}/>},
+  { show: true, path:"context", element: <ContextA/> },
   
-  { path:"firebase", element: <Firebase/> },
-  { path:"reducer", element: <ReducerComp/> },
-  { path:"effect", element: <EffectContext/>, children:[
+  { show: false, path:"firebase", element: <Firebase/> },
+  { show: true, path:"reducer", element: <ReducerComp/> },
+  { show: true, path:"effect", element: <EffectContext/>, children:[
+    { path:"input", element: <EffectContextInput/> },
     { path:":urlid", element: <EffectContextCard/> },
   ] },
   // PAGINA NON TROVATA
-  { path:"error", element: <Error/> },
-  { path:"*", element: <Navigate to={"/error"}/> },
+  { show: false, path:"error", element: <Error/> },
+  { show: false, path:"*", element: <Navigate to={"/error"}/> },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -31,3 +33,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <RouterProvider router={router}/>
   </React.StrictMode>,
 )
+
