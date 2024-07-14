@@ -1,3 +1,4 @@
+import css from "./UsersComponent.module.css"
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { UsersContext } from "../../datas/UsersDatas";
@@ -33,25 +34,27 @@ export default function UsersCard() {
 
 
   return (
-  <details open className="usersShow">
-    <summary>
-      {formState.name}
-    </summary>
-    <form onSubmit={submit} className="usersContainer">
-      {keys.map((key:string)=> {
-      if (typeof(formState[key])!="object" && key!="id") return (
+  <details open className={css.usersCard}>
+    <summary>{formState.name}</summary>
+    <form onSubmit={submit} className={css.usersContainer}>
 
-        <div key={key}>
-          <span>{key}</span>
-          <input 
-            type="text" 
-            name={key} 
-            value={formState[key]}
-            onChange={changeField}
-          />
-        </div>
+      <table>
+        <tbody>{keys.map((key:string)=> typeof(formState[key])!="object" && key!="id" && 
+          <tr key={key}>
+            <td>{key}</td>
 
-      )})}
+            <td>
+            <input 
+              type="text" 
+              id={key}  
+              name={key}  
+              value={formState[key]}
+              onChange={changeField}
+            />
+            </td>
+          </tr>
+        )}</tbody>
+      </table>
       <button type="submit">Salva</button>
     </form>
   </details>

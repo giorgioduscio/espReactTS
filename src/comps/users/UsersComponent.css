@@ -1,9 +1,0 @@
-.UsersComponent{
-    display: flex;
-}
-.UsersComponent div{
-    padding: 0;
-}
-.UsersComponent input{
-    width: 50%;
-}

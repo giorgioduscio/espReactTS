@@ -1,4 +1,4 @@
-import "./UsersComponent.css"
+import css from "./UsersComponent.module.css"
 import Navbar from "../navbar/Navbar"
 import { Link, Outlet } from "react-router-dom"
 import UsersDatas, { UsersContext } from "../../datas/UsersDatas"
@@ -8,6 +8,7 @@ export default function UsersComponent() {
   document.title="UsersComponent"
   const {users, setUsers} =UsersDatas()
 
+  // fix
   function deleteUser(id:number) {
     const result :object[] =[]
     for (let user of users) {
@@ -20,17 +21,20 @@ export default function UsersComponent() {
   return (<UsersContext.Provider value={{users, setUsers}}>
     <Navbar/>
 
-    <article className="UsersComponent">
-      <details open className="usersMenu">
+    <article className={css.UsersComponent}>
+      <details open className={css.usersMenu}>
         <summary>Utenti</summary>
+        
         <ol>
-          <Link to={'/effect/input'}>Aggiungi</Link>
-        {users.map((user:any)=>
-          <li key={user.id}>
-            <button onClick={()=> deleteUser(user.id)}>❌</button>
-            <Link to={`/effect/${user.id}`}>{user.name}</Link>
-          </li>
-        )}</ol>
+          <Link to={'/users/input'}>Aggiungi</Link>
+          
+          {users.map((user:any)=>
+            <li key={user.id}>
+              <button onClick={()=> deleteUser(user.id)}>❌</button>
+              <Link to={`/users/${user.id}`}>{user.name}</Link>
+            </li>
+          )}
+        </ol>
       </details>
 
       <Outlet />

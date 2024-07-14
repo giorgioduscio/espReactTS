@@ -17,7 +17,7 @@ img.logo{
     object-fit: cover;
 }
 
-.auto-dropdown{}
+.autoDropdown{}
 summary{
     padding: 10px;
 }
@@ -32,6 +32,6 @@ summary{
 
     background: var(--c2);
 }
-.auto-dropdown a{
+a{
     color: var(--c5);
 }

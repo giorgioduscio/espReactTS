@@ -1,5 +1,4 @@
-import './macro.css'
-import './micro.css'
+import './style.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Navigate, RouteObject, RouterProvider, createBrowserRouter } from 'react-router-dom'
@@ -10,7 +9,7 @@ import UsersComponent from './comps/users/UsersComponent'
 import UsersCard from './comps/users/UsersCard'
 import UsersInput from './comps/users/UsersInput'
 
-export const router :RouteObject |any[] =createBrowserRouter([
+export const router :RouteObject |any =createBrowserRouter([
   // NESSUN PERCORSO
   { show: false, path:"",  element: <Navigate to={"/users"}/>},
 
@@ -30,3 +29,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   </React.StrictMode>,
 )
 
+// console.log('router', router.routes);

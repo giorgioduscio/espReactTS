@@ -1,0 +1,11 @@
+.UsersComponent{
+    display: flex;
+}
+
+
+
+.usersCard{
+    padding: 10px;
+    border-left: 2px solid;
+}
+.usersContainer{}
