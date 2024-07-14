@@ -20,7 +20,7 @@ export default function Navbar() {
     <img className={css.logo} src={reactLogo}/>
 
     <details className={css.autoDropdown}>
-      <summary className={css.autoDropdown}>Pagine</summary>
+      <summary>Pagine</summary>
       
       <div className={css.content}>{ R.map((page:any)=> page.show &&
         <Link to={"/"+page.path} key={page.id}>
