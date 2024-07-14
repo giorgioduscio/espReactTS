@@ -1,3 +1,4 @@
+import "./Animals.module.css"
 import AnimalsDatas from "../../datas/AnimalsDatas";
 import Navbar from "../navbar/Navbar";
 import AnimalsCard from "./AnimalsCard";
