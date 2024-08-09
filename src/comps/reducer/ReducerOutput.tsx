@@ -7,17 +7,17 @@ export default function ReducerOutput({formState, formKeys}) {
       </colgroup>
 
       <thead>
-        <tr>{formKeys.map((fieldName:string)=>{
-          return <th key={fieldName}>{fieldName}</th>
-        })}</tr>
+        <tr>{formKeys.map((fieldName:string)=>
+          <th key={fieldName}>{fieldName}</th>
+        )}</tr>
       </thead>
       
       <tbody>
-        <tr>{formKeys.map((fieldName:string)=>{
-          return <td key={fieldName}>
+        <tr>{formKeys.map((fieldName:string)=>
+          <td key={fieldName}>
             {formState[fieldName]}
-            </td> 
-        })}</tr>
+          </td> 
+        )}</tr>
       </tbody>
     </table>
   </>)

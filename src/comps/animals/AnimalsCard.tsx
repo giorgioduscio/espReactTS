@@ -1,7 +1,8 @@
-import AnimalsDatas from "../../datas/AnimalsDatas"
+import { useContext } from "react"
+import { AnimalsContext } from "../../datas/AnimalsDatas"
 
 export default function AnimalsCard() {
-  const {animals, setAnimals} =AnimalsDatas()
+  const {animals, setAnimals} =useContext(AnimalsContext)
 
   return (<>
     <h1>Beta</h1>

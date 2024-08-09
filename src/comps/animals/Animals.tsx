@@ -1,12 +1,12 @@
 import "./Animals.module.css"
-import AnimalsDatas from "../../datas/AnimalsDatas";
+import AnimalsDatas, { AnimalsContext } from "../../datas/AnimalsDatas";
 import Navbar from "../navbar/Navbar";
 import AnimalsCard from "./AnimalsCard";
 
 export default function Animals() {
   const {animals, setAnimals} =AnimalsDatas()
     
-  return (<>
+  return (<AnimalsContext.Provider value={{animals, setAnimals}}>
   <Navbar/>
 
   <article>
@@ -21,5 +21,5 @@ export default function Animals() {
 
     <AnimalsCard/>
   </article>
-  </>)
+  </AnimalsContext.Provider>)
 }

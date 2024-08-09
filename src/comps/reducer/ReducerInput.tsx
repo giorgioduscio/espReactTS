@@ -10,7 +10,7 @@ export default function ReducerInput({formState, formKeys, dispatchState}) {
 
   //todo
   function fieldChange(e:Event){
-    let {name, value} =e.target
+    let {name, value} =e.target as HTMLInputElement
     dispatchState({ type:"patch", name, value })
   }
 

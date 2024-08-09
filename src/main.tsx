@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Navigate, RouteObject, RouterProvider, createBrowserRouter } from 'react-router-dom'
 
-import ReducerComp from './comps/ReducerComp'
+import ReducerComp from './comps/reducer/ReducerComp'
 import Error from './comps/Error'
 import UsersComponent from './comps/users/UsersComponent'
 import UsersCard from './comps/users/UsersCard'
