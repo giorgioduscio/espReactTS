@@ -1,5 +1,5 @@
 /* eslint-disable no-var */
-import Navbar from './navbar/Navbar'
+import Navbar from '../components/navbar/Navbar'
 
 export default function Error() {
   document.title="Errore"

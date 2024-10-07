@@ -1,4 +1,4 @@
-export interface List {
+export default interface List {
     complete :boolean,
     title :string,
     id? :string,

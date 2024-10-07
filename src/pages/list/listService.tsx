@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react'
-import { List } from './listInterface'
 import { mapper } from '../../tools/mapper'
+import List from './ListInterface'
 
 export const listContext :any =createContext(null)
 

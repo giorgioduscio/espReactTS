@@ -1,11 +1,12 @@
-import './list.module.css'
+import './List.css'
 import { randomId } from '../../tools/randomCompiler'
-import listService, { listContext } from './listService'
+import listService, { listContext } from './ListService'
 import { ChangeEvent } from 'react'
-import Navbar from '../navbar/Navbar'
+import Navbar from '../../components/navbar/Navbar'
 
 export default function List() {
-  const lls =listService()
+  document.title ='Lista'
+  const lls =listService() //localListService
 
   function onPostList(e:any){
     const newValue :string =(e.target).title.value
@@ -14,14 +15,14 @@ export default function List() {
   }
   function onPatchList(e:ChangeEvent<HTMLInputElement>) {
     const {id, name, value, checked} =e.target
-    , newValue =name=='title' ?value :checked
-    , listEl =lls.list[Number(id)]
+    ,     newValue =name=='title' ?value :checked
+    ,     listEl =lls.list[Number(id)]
     lls.patchList(listEl.key!,{...listEl,[name]:newValue })
   }
 
-  return( <listContext.Provider value={lls}>
+  return <listContext.Provider value={lls}>
   <Navbar/>
-  <article>
+  <article id="list">
     <div>
       <h1>Lista</h1>
 
@@ -58,5 +59,5 @@ export default function List() {
 
     </div>
   </article>
-  </listContext.Provider>)
+  </listContext.Provider>
 }
