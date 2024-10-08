@@ -1,0 +1,11 @@
+#nf>div{
+    text-align: center;
+}
+#nf hr{
+    margin: 20px ;
+}
+#nf img{
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+}

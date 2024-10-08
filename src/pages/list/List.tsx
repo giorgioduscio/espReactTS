@@ -5,7 +5,7 @@ import { ChangeEvent } from 'react'
 import Navbar from '../../components/navbar/Navbar'
 
 export default function List() {
-  document.title ='Lista'
+  document.title ='List'
   const lls =listService() //localListService
 
   function onPostList(e:any){

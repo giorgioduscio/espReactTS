@@ -1,15 +1,9 @@
 import "./Navbar.css"
-import { AppRouter } from "../../router";
-import closeDropdown from "./closeDropdown";
 import { Link } from "react-router-dom";
-import { upperSpaces } from "../../tools/upperSpaces";
+import RouterDrop from "../RouterDrop/RouterDrop";
 
 export default function Navbar() {
-  const appRouter =AppRouter
-  ,     reactLogo ="https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png"
-
-  // CHIUDE IL DROPDOWN
-  closeDropdown('navbar')
+  const reactLogo ="https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png"
     
   return (
   <nav id="navbar">
@@ -17,18 +11,7 @@ export default function Navbar() {
       <img src={reactLogo} alt="reactLogo"/>
     </Link>
     <b>{ document.title && document.title }</b>
-
-    <details className="navbar">
-      <summary>
-      <span className="material-symbols-outlined">apps</span>
-      </summary>
-      
-      <div>{ appRouter.map((page:any,i)=> page.show &&
-        <Link to={"/"+page.path} key={i}>
-          <abbr title={page.path}>{ upperSpaces(page.path) }</abbr> 
-        </Link>  )}
-      </div>
-    </details>
+    <RouterDrop />
   </nav>
   )
 }

@@ -1,6 +1,8 @@
 import './Home.css'
 import Navbar from '../../components/navbar/Navbar';
-import { ChangeEvent, Component } from 'react';
+import { Component } from 'react';
+import HomeDatas from './HomeDatas';
+import { Link } from 'react-router-dom';
 export default class Home extends Component<any, any> {
   constructor(props:any) {
     super(props);
@@ -10,17 +12,6 @@ export default class Home extends Component<any, any> {
       name: 'John Doe'
     };
   }
-
-  handleClick = () =>{
-    this.setState({ count: this.state.count + 1 });
-    console.log(this.state.count);
-  };
-
-  handleChange = (event:ChangeEvent) => {
-    const newValue =(event.target as HTMLInputElement).value
-    this.setState({ name:newValue });
-    console.log(newValue);
-  };
 
   render() {
     return <>
@@ -33,11 +24,18 @@ export default class Home extends Component<any, any> {
           <p>Benvenuto nel laboratorio del procione! Qui troverai numerose applicazioni in fase di sviluppo create per scopo didattiche</p>
         </header>
 
-        <main>
-          <p>Count: {this.state.count}</p>
-          <button onClick={this.handleClick}>Increment</button>
-          <input type="text" defaultValue={this.state.name} onChange={this.handleChange} />
-        </main>
+        <main>{HomeDatas().map(article=> 
+          <div key={article.title}>
+            <img src={article.imageUrl} alt={article.title} />
+            <div className="text">
+              <h3>{article.title}</h3>
+              <p>{article.description}</p>
+              <Link to={article.routerLink}>Visita</Link>
+            </div>
+          </div>
+        )}</main>
+
+        <footer></footer>
       </div>
     </article>
     </>
