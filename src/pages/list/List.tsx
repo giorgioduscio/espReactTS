@@ -1,26 +1,26 @@
 import './List.css'
 import { randomId } from '../../tools/randomCompiler'
-import listService, { listContext } from './ListService'
-import { ChangeEvent } from 'react'
+import { ListContext } from '../../datas/ListProvider'
+import { ChangeEvent, useContext } from 'react'
 import Navbar from '../../components/navbar/Navbar'
 
 export default function List() {
   document.title ='List'
-  const lls =listService() //localListService
+  const listContext =useContext(ListContext)! //localListService
 
-  function onPostList(e:any){
-    const newValue :string =(e.target).title.value
-    lls.postList({ complete:false, title:newValue, id:`${randomId()}` })
-    e.preventDefault()
+  function onPostList(e:ChangeEvent<HTMLFormElement>){
+    const newValue =(e.target as any).title.value
+    listContext.postList({ complete:false, title:newValue.value, id:`${randomId()}` })
+    e.preventDefault()    
   }
   function onPatchList(e:ChangeEvent<HTMLInputElement>) {
     const {id, name, value, checked} =e.target
     ,     newValue =name=='title' ?value :checked
-    ,     listEl =lls.list[Number(id)]
-    lls.patchList(listEl.key!,{...listEl,[name]:newValue })
+    ,     listEl =listContext.list[Number(id)]
+    listContext.patchList(listEl.key!,{...listEl,[name]:newValue })
   }
 
-  return <listContext.Provider value={lls}>
+  return <>
   <Navbar/>
   <article id="list">
     <div>
@@ -34,10 +34,10 @@ export default function List() {
           </button>
         </form>
         
-        {lls.list.map((el,i)=>(
+        {listContext.list.map((el,i)=>(
         <div key={i}> 
           <span
-            onClick={()=> lls.deleteList(el.key!)} 
+            onClick={()=> listContext.deleteList(el.key!)} 
             className="material-symbols-outlined"
           >delete</span>
           <input
@@ -59,5 +59,5 @@ export default function List() {
 
     </div>
   </article>
-  </listContext.Provider>
+  </>
 }

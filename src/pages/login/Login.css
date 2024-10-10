@@ -1,0 +1,19 @@
+#login>div{
+    margin: 10px auto;
+    padding: 10px;
+    max-width: 300px;
+
+    background: var(--c2);
+    border-radius: 5px;
+}
+
+#login form{
+    display: grid;
+}
+
+@media screen and (max-width: 600px) {
+    #login>div{
+        margin: 0;
+        background: transparent;
+    }
+}

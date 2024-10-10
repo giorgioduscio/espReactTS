@@ -13,7 +13,7 @@ export default function RouterDrop() {
   return (
     <details className="RouterDrop">
       <summary>
-      <span className="material-symbols-outlined">apps</span>
+        <span className="material-symbols-outlined">apps</span>
       </summary>
       
       <div> {appRouter .map((page:any,i)=>

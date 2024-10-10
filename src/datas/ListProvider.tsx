@@ -1,10 +1,15 @@
 import { createContext, useEffect, useState } from 'react'
-import { mapper } from '../../tools/mapper'
+import { mapper } from '../tools/mapper'
 import List from './ListInterface'
 
-export const listContext :any =createContext(null)
+export const ListContext =createContext<{
+  list:List[],
+  postList:Function,
+  patchList:Function,
+  deleteList:Function
+}|null>(null)
 
-export default function listService() {
+export default function ListProvider(props:any) {
   const [list, setList] =useState<List[]>([])
   , url ='https://list-89d05-default-rtdb.europe-west1.firebasedatabase.app/todos'    
   
@@ -39,7 +44,7 @@ export default function listService() {
       body: JSON.stringify(listEl)
     })
     .then(r=>r.json())
-    .then(r=>{ 
+    .then(_r=>{ 
       const updateList :List[] =list.map(e=>e.key===elemKey ?listEl :e)
       setList(updateList)
       console.log('postList',list.filter(e=>e.key===elemKey)[0] );
@@ -49,11 +54,13 @@ export default function listService() {
   function deleteList(elemKey:string) {
     fetch(`${url}/${elemKey}/.json`, { method: 'DELETE' })
     .then(r=>r.json())
-    .then(r=>{ 
+    .then(_r=>{ 
       setList( list.filter(e=>e.key!==elemKey) )
       console.log('postList',list);
     })
   }
 
-  return {list, postList, patchList, deleteList}
+  return <ListContext.Provider value={{list, postList, patchList, deleteList}}>
+    {props.children}
+  </ListContext.Provider>
 }

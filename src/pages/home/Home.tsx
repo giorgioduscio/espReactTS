@@ -30,7 +30,7 @@ export default class Home extends Component<any, any> {
             <div className="text">
               <h3>{article.title}</h3>
               <p>{article.description}</p>
-              <Link to={article.routerLink}>Visita</Link>
+              <div><Link to={article.routerLink}>Visita</Link></div>
             </div>
           </div>
         )}</main>

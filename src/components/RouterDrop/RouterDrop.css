@@ -1,9 +1,9 @@
-.RouterDrop{ position: relative; }
-.RouterDrop summary{
+#navbar details{ position: relative; }
+#navbar details summary{
     display: grid;
     cursor: pointer;
 }
-.RouterDrop>div{
+#navbar details>div{
     padding: 10px;
     position: absolute;
 
@@ -17,9 +17,12 @@
     color: var(--c5);
     text-decoration: none;
 }
+.accountDrop summary img{
+    border-radius: 50px;
+}
 @media only screen and (max-width:600px) {
-    .RouterDrop{ position: static; }
-    .RouterDrop div{
+    #navbar details{ position: static; }
+    #navbar details div{
         padding: 10px;
         width: 80vw;
         height: 100vh;
